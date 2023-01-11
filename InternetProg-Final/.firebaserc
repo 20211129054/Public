@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "intprog-final": {
+      "hosting": {
+        "fbuyg": [
+          "intprog-final"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "intprog-final"
+  }
+}

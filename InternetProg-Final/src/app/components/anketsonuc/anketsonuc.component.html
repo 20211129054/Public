@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row mt-3">
+    <div class="col-md-12 mb-2">
+      <select class="form-select" [(ngModel)]="selectedValue" (ngModelChange)="onChange($event)" placeholder="Anket Seçiniz">
+          <option selected>Anket Seçiniz</option>
+          <option [value]="anket.AnketId" *ngFor="let anket of mevcutAnketler">{{anket.Ad}}</option>
+        </select>
+  </div>
+    <div class="col-md-12 mt-2">
+      <h4>Anketlere Verilen Cevaplar</h4>
+      <hr>
+            <table class="table table-sm">
+        <thead class="bg-secondary text-white">
+          <th>Soru</th>
+          <th>Cevap</th>
+          <th>Cevap Tarihi</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let cevap of anketSoruCevaplar">
+            <td>{{cevap.AnketSoruAd}}</td>
+            <td>{{cevap.Cevap}}</td>
+            <td>{{cevap.OlusturmaTarihi | date:'dd.MM.yyyy HH:mm'}}</td>
+
+
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
