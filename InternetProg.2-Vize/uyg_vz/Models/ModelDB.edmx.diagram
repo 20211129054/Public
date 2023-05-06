@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1214cfc0e84b489d80e9e5516144469c" Name="Diagram1">
+        <EntityTypeShape EntityType="DB01Model.Anket" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB01Model.Secenek" Width="1.5" PointX="7.5" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB01Model.Soru" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB01Model.Uye" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="DB01Model.FK_Anket_ToUye" ManuallyRouted="false" />
+        <AssociationConnector Association="DB01Model.FK_Soru_ToAnket" ManuallyRouted="false" />
+        <AssociationConnector Association="DB01Model.FK_Secenek_ToSoru" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DB01Model.Cevap" Width="1.5" PointX="9.75" PointY="1.25" />
+        <AssociationConnector Association="DB01Model.FK_Cevap_ToSecenek" />
+        <AssociationConnector Association="DB01Model.FK_Cevap_ToUye" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
