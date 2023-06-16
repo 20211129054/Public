@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DB01ModelStoreContainer" CdmEntityContainer="DB01Entities">
+    <EntitySetMapping Name="Anket">
+      <EntityTypeMapping TypeName="DB01Model.Anket">
+        <MappingFragment StoreEntitySet="Anket">
+          <ScalarProperty Name="anketId" ColumnName="anketId" />
+          <ScalarProperty Name="anketAdi" ColumnName="anketAdi" />
+          <ScalarProperty Name="anketAciklama" ColumnName="anketAciklama" />
+          <ScalarProperty Name="anketUyeId" ColumnName="anketUyeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Secenek">
+      <EntityTypeMapping TypeName="DB01Model.Secenek">
+        <MappingFragment StoreEntitySet="Secenek">
+          <ScalarProperty Name="secenekId" ColumnName="secenekId" />
+          <ScalarProperty Name="secenekSoruId" ColumnName="secenekSoruId" />
+          <ScalarProperty Name="secenek" ColumnName="secenek" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Soru">
+      <EntityTypeMapping TypeName="DB01Model.Soru">
+        <MappingFragment StoreEntitySet="Soru">
+          <ScalarProperty Name="soruId" ColumnName="soruId" />
+          <ScalarProperty Name="soruAnketId" ColumnName="soruAnketId" />
+          <ScalarProperty Name="soru" ColumnName="soru" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Uye">
+      <EntityTypeMapping TypeName="DB01Model.Uye">
+        <MappingFragment StoreEntitySet="Uye">
+          <ScalarProperty Name="uyeId" ColumnName="uyeId" />
+          <ScalarProperty Name="uyeAdsoyad" ColumnName="uyeAdsoyad" />
+          <ScalarProperty Name="uyeDogTarih" ColumnName="uyeDogTarih" />
+          <ScalarProperty Name="uyeMail" ColumnName="uyeMail" />
+          <ScalarProperty Name="uyeSifre" ColumnName="uyeSifre" />
+          <ScalarProperty Name="uyeRol" ColumnName="uyeRol" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cevap">
+      <EntityTypeMapping TypeName="DB01Model.Cevap">
+        <MappingFragment StoreEntitySet="Cevap">
+          <ScalarProperty Name="cevaplamaZamani" ColumnName="cevaplamaZamani" />
+          <ScalarProperty Name="cevapUyeId" ColumnName="cevapUyeId" />
+          <ScalarProperty Name="cevapSecenek" ColumnName="cevapSecenek" />
+          <ScalarProperty Name="cevapSecenekId" ColumnName="cevapSecenekId" />
+          <ScalarProperty Name="cevapId" ColumnName="cevapId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
