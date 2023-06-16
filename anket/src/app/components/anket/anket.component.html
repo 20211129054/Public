@@ -1,0 +1,45 @@
+<h2>Anketler</h2>
+  <back-button></back-button>
+<button mat-fab color="primary" matTooltip="Anket Ekle" (click)="AnketEkle()">
+
+  <mat-icon aria-label="label">add</mat-icon>
+</button>
+<mat-form-field appearance="outline">
+  <input matInput placeholder="Aranacak Bir Değer Giriniz" (keyup)="Filterele($event)">
+</mat-form-field>
+<mat-table [dataSource]="dataSource" matSort>
+  <ng-container matColumnDef="anketAdi">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Anket Adı
+    </mat-header-cell>
+    <mat-cell *matCellDef="let anket"> {{anket.anketAdi}} </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="anketSoruSayisi">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Soru Sayısı
+    </mat-header-cell>
+    <mat-cell *matCellDef="let anket"> {{anket.anketSoruSayisi}} </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="islemler">
+    <mat-header-cell *matHeaderCellDef> İşlemler
+    </mat-header-cell>
+    <mat-cell *matCellDef="let anket">
+      <button mat-icon-button color="primary" matTooltip="Cevapları Göster" [routerLink]="['/cevaplistele',anket.anketId]">
+        <mat-icon aria-label="label">done</mat-icon>
+      </button>
+      <button mat-icon-button color="primary" matTooltip="Soru Listesi" [routerLink]="['/sorulistele',anket.anketId]">
+        <mat-icon aria-label="label">list</mat-icon>
+      </button>
+      <button mat-icon-button color="primary" matTooltip="Anket Düzenle" (click)="AnketDuzenle(anket)">
+        <mat-icon aria-label="label">edit</mat-icon>
+      </button>
+      <button mat-icon-button color="warn" matTooltip="Anket Sil" (click)="AnketSil(anket)">
+        <mat-icon aria-label="label">delete</mat-icon>
+      </button>
+    </mat-cell>
+  </ng-container>
+
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
+<mat-paginator [length]="anketler?.length" [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons>
+</mat-paginator>

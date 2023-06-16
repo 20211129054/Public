@@ -1,0 +1,34 @@
+<h2>Üye Listesi</h2>
+<back-button></back-button>
+<button mat-fab color="primary" (click)="Ekle()" matTooltip="Üye Ekle">
+  <mat-icon aria-label="label">person_add</mat-icon>
+</button>
+<mat-table [dataSource]="dataSource" matSort>
+  <ng-container matColumnDef="uyeAdsoyad">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Adı Soyadı
+    </mat-header-cell>
+    <mat-cell *matCellDef="let uye"> {{uye.uyeAdsoyad}} </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="uyeDogTarih">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Doğum Tarihi
+    </mat-header-cell>
+    <mat-cell *matCellDef="let uye"> {{uye.uyeDogTarih}} </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="islemler">
+    <mat-header-cell *matHeaderCellDef> İşlemler
+    </mat-header-cell>
+    <mat-cell *matCellDef="let uye">
+      <button mat-icon-button color="primary" matTooltip="Üye Düzenle" (click)="UyeDuzenle(uye)">
+        <mat-icon aria-label="label">edit</mat-icon>
+      </button>
+      <button mat-icon-button color="warn" matTooltip="Üye Sil" (click)="UyeSil(uye)">
+        <mat-icon aria-label="label">delete</mat-icon>
+      </button>
+
+    </mat-cell>
+  </ng-container>
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
+<mat-paginator [pageSizeOptions]="[ 10, 25, 100,500]">
+</mat-paginator>

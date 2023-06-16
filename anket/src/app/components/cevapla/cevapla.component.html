@@ -1,0 +1,21 @@
+<h2>Anket Listesi</h2>
+<back-button></back-button>
+<mat-form-field appearance="outline" style="width: 50%;">
+  <mat-select placeholder="Anket Seçiniz" (selectionChange)="AnketSec($event.value)">
+    <mat-option [value]="anket.anketId" *ngFor="let anket of anketler">{{anket.anketAdi}}</mat-option>
+  </mat-select>
+</mat-form-field>
+
+<mat-card *ngIf="sorular?.length>0">
+  <mat-card-content>
+      <mat-list *ngFor="let soru of sorular; let i = index">
+        <mat-list-item>
+          <span matListItemTitle>{{i+1}}) {{soru.soru}}</span>
+        </mat-list-item>
+        <mat-radio-group>
+          <mat-radio-button (change)="onItemChange2($event,secenek)" *ngFor="let secenek of soru.secenekler" value="{{secenek.secCevap}}">{{secenek.secenek}}</mat-radio-button>
+        </mat-radio-group>
+      </mat-list>
+      <button  mat-raised-button color="primary" (click)="Kaydet()">Kaydet</button>
+  </mat-card-content>
+</mat-card>

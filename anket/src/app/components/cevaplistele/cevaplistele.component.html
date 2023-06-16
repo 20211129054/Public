@@ -1,0 +1,18 @@
+<h2>Anket Listesi</h2>
+<back-button></back-button>
+<mat-form-field appearance="outline" style="width: 50%;">
+  <mat-select placeholder="Anket Seçiniz" (selectionChange)="AnketSec($event.value)">
+    <mat-option [value]="anket" *ngFor="let anket of anketler">{{anket.anketAdi}}</mat-option>
+  </mat-select>
+</mat-form-field>
+
+<h3>{{anketAd}}</h3>
+<mat-list *ngIf="sorular?.length>0">
+  <mat-list-item *ngFor="let soru of sorular; let i = index" style="margin-bottom: 30px;">
+    <span matListItemTitle>{{i+1}}) {{soru.soru}}</span>
+    <div *ngFor="let secenek of soru.secenekler">
+      <span matListItemLine style="font-weight: 600;">{{secenek.secenek}} <span style="color:red;font-weight: 600;">(Cevaplama Sayısı : {{secenek.cevapSayisi}})</span></span>
+      <!-- <span matListItemLine style="color:red;"><span style="font-weight: 600;">{{secenek.cevapSayisi}}</span></span> -->
+    </div>
+  </mat-list-item>
+</mat-list>

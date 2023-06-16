@@ -1,0 +1,29 @@
+<h2>Anket Listesi</h2>
+<back-button></back-button><p><b>Adı Soyadı : </b> {{secUye?.uyeAdsoyad}}</p>
+
+
+<mat-table [dataSource]="dataSource" matSort>
+  <ng-container matColumnDef="anketAdi">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Anket Adı
+    </mat-header-cell>
+    <mat-cell *matCellDef="let anket"> {{anket.anketAdi}} </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="islemler">
+    <mat-header-cell *matHeaderCellDef> İşlemler
+    </mat-header-cell>
+    <mat-cell *matCellDef="let anket">
+      <button mat-icon-button color="primary" matTooltip="Anket Düzenle" (click)="AnketDuzenle(anket)">
+        <mat-icon aria-label="label">edit</mat-icon>
+      </button>
+      <button mat-icon-button color="warn" matTooltip="Anket Kaydını Sil" (click)="AnketSil(anket)">
+        <mat-icon aria-label="label">delete</mat-icon>
+      </button>
+    </mat-cell>
+  </ng-container>
+
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
+<mat-paginator [length]="anketler?.length" [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons>
+</mat-paginator>
